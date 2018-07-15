@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: ['babel-polyfill', './src/js/index.js'], 
@@ -33,34 +33,34 @@ module.exports = {
 		        	}
 		        ]
 		    }, 
-		    {
-		    	test: /\.html$/, 
-		    	use: [
-		    		{
-		    			loader: 'file-loader', 
-		    			options: {
-		    				name: '[name].html'
-		    			}
-		    		}, 
-		    		{
-		    			loader: 'extract-loader'
-		    		}, 
-		    		{
-		    			loader: 'html-loader', 
-		    			options: {
-                            attrs: ["img:src", "link:href"],
-                            interpolate: true
-                        }
-		    		}
-		    	]
-		    }, 
+		    // {
+		    // 	test: /\.html$/, 
+		    // 	use: [
+		    // 		{
+		    // 			loader: 'file-loader', 
+		    // 			options: {
+		    // 				name: '[name].html'
+		    // 			}
+		    // 		}, 
+		    // 		{
+		    // 			loader: 'extract-loader'
+		    // 		}, 
+		    // 		{
+		    // 			loader: 'html-loader', 
+		    // 			options: {
+      //                       attrs: ["img:src", "link:href"],
+      //                       interpolate: true
+      //                   }
+		    // 		}
+		    // 	]
+		    // }, 
 		    {
 		    	test: /\.(jpeg|jpg|png)$/, 
 		    	use: [
 		    		{
 		    			loader: 'file-loader', 
 		    			options: {
-		    				name: './img/[name].[ext]'
+		    				name: './dist/img/[name].[ext]'
 		    			}
 		    		}
 		    	]
@@ -70,10 +70,10 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 	      filename: './css/style.css'
-	    }) 
+	    })
 	    // new HtmlWebpackPlugin({
-	    //   inject: false,
-	    //   hash: true,
+	    //   // inject: false,
+	    //   // hash: true,
 	    //   template: './index.html',
 	    //   filename: 'index.html'
 	    // })
